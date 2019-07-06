@@ -63,7 +63,7 @@ class App extends Component {
 
         // Get flights arrival time and airport
         const destinationAirport = selectedFlight.destination;
-        const arrivalTime = selectedFlight.arrivalTime + constants.TURN_AROUND_TIME;
+        const arrivalTime = selectedFlight.arrivalTime + constants.TURN_AROUND_TIME_IN_SECONDS;
 
         // Filter flights
         const filteredFlightsList = this.filterFlights(destinationAirport, arrivalTime);
@@ -72,9 +72,21 @@ class App extends Component {
         const rotationListCopy = JSON.parse(JSON.stringify(this.state.rotationList));
         rotationListCopy.push(selectedFlight);
 
+        // Update utilisation percentage
+        const aircraftListCopy = JSON.parse(JSON.stringify(this.state.aircraftList));
+        const aircraftIndex = aircraftListCopy.findIndex(aircraft => aircraft.selected === true);
+        let flightTimeInSeconds = 0;
+        rotationListCopy.forEach(rotation => {
+            flightTimeInSeconds += rotation.arrivalTime - rotation.departureTime;
+        });
+        const flightTimePercentage = (flightTimeInSeconds / constants.SECONDS_PER_DAY) * 100;
+
+        aircraftListCopy[aircraftIndex].utilisation = Math.round(flightTimePercentage).toString() + '%';
+
         // Set filtered flights and rotation lists
         this.setState(prevState => ({
             ...prevState,
+            aircraftList: aircraftListCopy,
             filteredFlightsList: filteredFlightsList,
             rotationList: rotationListCopy
         }));
@@ -83,7 +95,8 @@ class App extends Component {
     resetSelectedAircraft = () => {
         const aircraftListCopy = JSON.parse(JSON.stringify(this.state.aircraftList));
         aircraftListCopy.forEach(aircraft => {
-           aircraft.selected = false
+            aircraft.selected = false;
+            aircraft.utilisation = 0;
         });
         return aircraftListCopy
     };
@@ -108,11 +121,14 @@ class App extends Component {
         return (
             <div className={"app"}>
                 <div className={"reset"}>
-                    <button className={'reset-button'} onClick={() => {this.reset()}}>Reset</button>
+                    <button className={'reset-button'} onClick={() => {
+                        this.reset()
+                    }}>Reset
+                    </button>
                 </div>
-                <AircraftList aircraftList={this.state.aircraftList} selectAircraft={this.selectAircraft} />
-                <FlightList filteredFlightsList={this.state.filteredFlightsList} selectFlight={this.selectFlight} />
-                <RotationList rotationList={this.state.rotationList} />
+                <AircraftList aircraftList={this.state.aircraftList} selectAircraft={this.selectAircraft}/>
+                <FlightList filteredFlightsList={this.state.filteredFlightsList} selectFlight={this.selectFlight}/>
+                <RotationList rotationList={this.state.rotationList}/>
             </div>
         );
     }

@@ -22,6 +22,7 @@ class AircraftList extends Component {
                                         <div>Aircraft type: {aircraft.type}</div>
                                         <div>Aircraft economy seats available: {aircraft.economySeats}</div>
                                         <div>Aircraft base: {aircraft.base}</div>
+                                        <div>Utilisation: {aircraft.utilisation}</div>
                                     </div>
                                 </li>
                             )

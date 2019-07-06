@@ -9,7 +9,8 @@ export const fetchAircrafts = () => {
                 type: aircraft.type,
                 economySeats: aircraft.economySeats,
                 base: aircraft.base,
-                selected: false
+                selected: false,
+                utilisation: 0
             }));
         })
         .catch(error => console.log('Error fetching aircraft: ' + error));
