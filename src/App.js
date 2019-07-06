@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import AircraftList from './components/AircraftList';
 import FlightList from "./components/FlightList";
-import RouteList from './components/RouteList';
+import RotationList from './components/RotationList';
 import * as constants from './constants';
 import * as services from './services/services';
 
@@ -13,7 +13,7 @@ class App extends Component {
             aircraftList: [],
             flightList: [],
             filteredFlightsList: [],
-            routeList: []
+            rotationList: []
         };
     }
 
@@ -68,15 +68,15 @@ class App extends Component {
         // Filter flights
         const filteredFlightsList = this.filterFlights(destinationAirport, arrivalTime);
 
-        // Add selected route to route list
-        const routeListCopy = JSON.parse(JSON.stringify(this.state.routeList));
-        routeListCopy.push(selectedFlight);
+        // Add selected rotation to rotation list
+        const rotationListCopy = JSON.parse(JSON.stringify(this.state.rotationList));
+        rotationListCopy.push(selectedFlight);
 
-        // Set filtered flights and route lists
+        // Set filtered flights and rotation lists
         this.setState(prevState => ({
             ...prevState,
             filteredFlightsList: filteredFlightsList,
-            routeList: routeListCopy
+            rotationList: rotationListCopy
         }));
     };
 
@@ -100,7 +100,7 @@ class App extends Component {
             ...prevState,
             aircraftList: aircraftListCopy,
             filteredFlightsList: [],
-            routeList: []
+            rotationList: []
         }));
     };
 
@@ -112,7 +112,7 @@ class App extends Component {
                 </div>
                 <AircraftList aircraftList={this.state.aircraftList} selectAircraft={this.selectAircraft} />
                 <FlightList filteredFlightsList={this.state.filteredFlightsList} selectFlight={this.selectFlight} />
-                <RouteList routeList={this.state.routeList} />
+                <RotationList rotationList={this.state.rotationList} />
             </div>
         );
     }

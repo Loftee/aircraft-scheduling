@@ -1,4 +1,4 @@
-.route-list-wrapper {
+.rotation-list-wrapper {
     width: 37.5%;
     padding: 15px;
     float: left;
@@ -6,14 +6,14 @@
     margin: 0;
 }
 
-.route-list {
+.rotation-list {
     width: 100%;
     float: left;
     list-style: none;
     padding: 0;
 }
 
-.route-list-item {
+.rotation-list-item {
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
@@ -21,16 +21,16 @@
     cursor: pointer;
 }
 
-.route-list-item:hover {
+.rotation-list-item:hover {
     background: #eee;
     border-color: #999;
 }
 
-.route-list-item__data {
+.rotation-list-item__data {
     font-size: 0;
 }
 
-.route-list-item__data span {
+.rotation-list-item__data span {
     font-size: initial;
     display: inline-block;
     width: 40%;
@@ -38,11 +38,11 @@
     min-height: 20px;
 }
 
-.route-list-item__data span:last-child {
+.rotation-list-item__data span:last-child {
     text-align: right;
 }
 
-span.route-list-item__data-arrow {
+span.rotation-list-item__data-arrow {
     width: 20%;
     text-align: center;
     background: url('../assets/arrow.png') center center no-repeat;
@@ -50,7 +50,7 @@ span.route-list-item__data-arrow {
 
 }
 
-.route-list-reset {
+.rotation-list-reset {
     float: left;
     width: 100%;
     text-align: right;

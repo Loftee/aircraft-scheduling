@@ -2,12 +2,14 @@
 
 exports[`Aircraft list renders correctly 1`] = `
 <div
-  className="aircraft-list"
+  className="aircraft-list-wrapper"
 >
   <h2>
     Select an aircraft
   </h2>
-  <ul>
+  <ul
+    className="aircraft-list"
+  >
     <li
       className="aircraft-list-item"
       key="0"

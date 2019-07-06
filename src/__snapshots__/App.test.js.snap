@@ -22,8 +22,8 @@ exports[`App renders correctly 1`] = `
     filteredFlightsList={Array []}
     selectFlight={[Function]}
   />
-  <RouteList
-    routeList={Array []}
+  <RotationList
+    rotationList={Array []}
   />
 </div>
 `;

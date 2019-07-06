@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import RouteList from './RouteList';
+import RotationList from './RotationList';
 
-describe('Route List', () => {
+describe('Rotation List', () => {
     const props = {
-        routeList:
+        rotationList:
             [{
                 id: "AS1001",
                 departureTime: 21600,
@@ -15,13 +15,13 @@ describe('Route List', () => {
                 destination: "LFMN"
             }]
     };
-    const component = shallow(<RouteList {...props} />);
+    const component = shallow(<RotationList {...props} />);
 
     it('renders correctly', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('displays selected routes', () => {
-       expect(component.find('.route-list-item').length).toBe(1);
+    it('displays selected rotations', () => {
+       expect(component.find('.rotation-list-item').length).toBe(1);
     });
 });

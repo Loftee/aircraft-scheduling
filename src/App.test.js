@@ -17,8 +17,8 @@ describe('App', () => {
         expect(app.find('FlightList').exists()).toBe(true);
     });
 
-    it('contains a RouteList component', () => {
-        expect(app.find('RouteList').exists()).toBe(true);
+    it('contains a RotationList component', () => {
+        expect(app.find('RotationList').exists()).toBe(true);
     });
 
     describe('when an aircraft is clicked', () => {
@@ -76,15 +76,15 @@ describe('App', () => {
                 origin: "LFSB",
                 destination: "LFMN"
             }],
-            routeList: []
+            rotationList: []
         });
 
         beforeEach(() => {
             mountedApp.instance().selectFlight(flightId);
         });
 
-        it('adds the flight to routes', () => {
-            expect(mountedApp.state().routeList).toEqual([{
+        it('adds the flight to rotation', () => {
+            expect(mountedApp.state().rotationList).toEqual([{
                 id: flightId,
                 departureTime: 21600,
                 arrivalTime: 26100,
@@ -118,7 +118,7 @@ describe('App', () => {
                 origin: "LFSB",
                 destination: "LFMN"
             }],
-            routeList: [{
+            rotationList: [{
                 id: "AS1001",
                 departureTime: 21600,
                 arrivalTime: 26100,
@@ -154,7 +154,7 @@ describe('App', () => {
                 destination: "LFMN"
             }]);
             expect(mountedApp.state().filteredFlightsList).toEqual([]);
-            expect(mountedApp.state().routeList).toEqual([]);
+            expect(mountedApp.state().rotationList).toEqual([]);
         });
     });
 })

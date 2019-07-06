@@ -1,31 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Route List Render correctly 1`] = `
-<ul
-  className="route-list"
-/>
-`;
-
-exports[`Route List renders correctly 1`] = `
-<div>
+exports[`Rotation List renders correctly 1`] = `
+<div
+  className="rotation-list-wrapper"
+>
   <h2>
-    Routes
+    Rotation
   </h2>
   <ul
-    className="route-list"
+    className="rotation-list"
   >
     <li
-      className="route-list-item"
+      className="rotation-list-item"
       key="0"
     >
       <h3
-        className="route-list-item__header"
+        className="rotation-list-item__header"
       >
         Flight: 
         AS1001
       </h3>
       <div
-        className="route-list-item__data"
+        className="rotation-list-item__data"
       >
         <span>
           Departure: 
@@ -34,7 +30,7 @@ exports[`Route List renders correctly 1`] = `
           LFSB
         </span>
         <span
-          className="route-list-item__data-arrow"
+          className="rotation-list-item__data-arrow"
         />
         <span>
           Arrival: 
