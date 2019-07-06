@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import AircraftList from './components/AircraftList';
 import FlightList from "./components/FlightList";
+import RouteList from './components/RouteList';
 import * as constants from './constants';
 import * as services from './services';
 
@@ -11,7 +12,8 @@ class App extends Component {
         this.state = {
             aircraftList: [],
             flightList: [],
-            filteredFlightsList: []
+            filteredFlightsList: [],
+            routeList: []
         };
     }
 
@@ -58,18 +60,24 @@ class App extends Component {
         // Get the selected flight
         const flightListCopy = JSON.parse(JSON.stringify(this.state.flightList));
         const flightIndex = flightListCopy.findIndex(flight => flight.id === id);
+        const selectedFlight = flightListCopy[flightIndex];
 
         // Get flights arrival time and airport
-        const destinationAirport = flightListCopy[flightIndex].destination;
-        const arrivalTime = flightListCopy[flightIndex].arrivalTime + constants.TURN_AROUND_TIME;
+        const destinationAirport = selectedFlight.destination;
+        const arrivalTime = selectedFlight.arrivalTime + constants.TURN_AROUND_TIME;
 
         // Filter flights
         const filteredFlightsList = this.filterFlights(destinationAirport, arrivalTime);
 
-        // Set filtered flights
+        // Add selected route to route list
+        const routeListCopy = JSON.parse(JSON.stringify(this.state.routeList));
+        routeListCopy.push(selectedFlight);
+
+        // Set filtered flights and route lists
         this.setState(prevState => ({
             ...prevState,
-            filteredFlightsList: filteredFlightsList
+            filteredFlightsList: filteredFlightsList,
+            routeList: routeListCopy
         }));
     };
 
@@ -95,8 +103,9 @@ class App extends Component {
     render() {
         return (
             <div className={"app"}>
-                <AircraftList {...this.state} selectAircraft={this.selectAircraft} />
-                <FlightList {...this.state} selectFlight={this.selectFlight} resetFlights={this.resetFlights} />
+                <AircraftList aircraftList={this.state.aircraftList} selectAircraft={this.selectAircraft} />
+                <FlightList filteredFlightsList={this.state.filteredFlightsList} selectFlight={this.selectFlight} resetFlights={this.resetFlights} />
+                <RouteList routeList={this.state.routeList} />
             </div>
         );
     }

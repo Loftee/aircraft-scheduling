@@ -9,11 +9,16 @@ describe('App', () => {
     expect(app).toMatchSnapshot();
   });
 
-  it('contains a AircraftList component', () => {
+  it('contains an AircraftList component', () => {
     expect(app.find('AircraftList')).toBeTruthy();
   });
 
   it('contains a FlightList component', () => {
     expect(app.find('FlightList')).toBeTruthy();
+  });
+
+  it('contains a RouteList component', () => {
+    expect(app.find('RouteList')).toBeTruthy();
+
   });
 });

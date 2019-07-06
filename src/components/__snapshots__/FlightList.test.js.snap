@@ -4,6 +4,9 @@ exports[`Flight List renders correctly 1`] = `
 <div
   className="flight-list-wrapper"
 >
+  <h2>
+    Select Flights
+  </h2>
   <div
     className="flight-list-reset"
   >

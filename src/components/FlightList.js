@@ -7,6 +7,7 @@ class FlightList extends Component {
         const {filteredFlightsList, selectFlight, resetFlights} = this.props;
         return (
             <div className={'flight-list-wrapper'}>
+                <h2>Select Flights</h2>
                 <div className={"flight-list-reset"}>
                     <button className={'flight-list-reset-button'} onClick={() => {resetFlights()}}>reset</button>
                 </div>

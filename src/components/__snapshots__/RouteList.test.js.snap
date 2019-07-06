@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Route List Render correctly 1`] = `
+<ul
+  className="route-list"
+/>
+`;
+
+exports[`Route List renders correctly 1`] = `
+<div>
+  <h2>
+    Routes
+  </h2>
+  <ul
+    className="route-list"
+  >
+    <li
+      className="route-list-item"
+      key="0"
+    >
+      <h3
+        className="route-list-item__header"
+      >
+        Flight: 
+        AS1001
+      </h3>
+      <div
+        className="route-list-item__data"
+      >
+        <span>
+          Departure: 
+          06:00
+           - 
+          LFSB
+        </span>
+        <span
+          className="route-list-item__data-arrow"
+        />
+        <span>
+          Arrival: 
+          07:15
+           - 
+          LFMN
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
