@@ -1,68 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Running the App
 
 In the project directory, you can run:
 
-### `npm start`
+`npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Assumptions
+#### The aircraft could travel from it's `base` to the first destination without a registered flight.
+This assumption was made as there were no available flights departing from the same airport as the aircrafts `base`
 
-### `npm test`
+## Test coverage
+I was able to successfully test the API calls in `services.js` using [jest-fetch-mock](https://www.npmjs.com/package/jest-fetch-mock). However, I was unable to mock these services for the tests in `App.test.js`. Therefore, I have uninstalled [jest-fetch-mock](https://www.npmjs.com/package/jest-fetch-mock) and commented out the service tests.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Compromises
+I chose to focus on what I believed to be the core business logic. This was as follows:
+1. The app shows a list of all our aircrafts to choose from
+1. The app shows a list of all the flights the airline plan to operate that day, their origin, destination, departure time and arrival time.
+1. The rotation is the list of flights, in order, an individual aircraft will operate during that day.
+1. Flights must be chosen by the user from our list of flights (right sidebar on the wireframe).
+1. All aircrafts must be on the ground at midnight.
+1. The turnaround time (minimum time between the end of a flight and the beginning of the next one) is always 20min for our airline.
+1. Aircrafts cannot "teleport" and cannot move without operating a flight, empty aircrafts cost too much! (With the exception of the above assumption)
+1. Utilisation: The app must display for each aircraft its utilisation in percent, i.e. the time the aircraft is on scheduled service per 24 hours (as opposed to sitting idle on the apron costing us money).
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Due to the time frame I treated the project more as a proof of concept and ignored styling to a large degree. This also meant I chose to disregard the requirement for the utilisation time line.
