@@ -4,18 +4,22 @@ import './AircraftList.css';
 
 class AircraftList extends Component {
     render() {
-        const {aircraftList} = this.props;
+        const {aircraftList, selectAircraft} = this.props;
         return (
             <ul className={'aircraft-list'}>
                 {
                     aircraftList.map((aircraft, index) => {
                         return (
-                            <li key={index} className={'aircraft-list-item'}>
+                            <li
+                                key={index}
+                                className={aircraft.selected === true ? 'aircraft-list-item aircraft-list-item--selected' : 'aircraft-list-item'}
+                                onClick={() => selectAircraft(aircraft.id)}
+                            >
                                 <h3 className={'aircraft-list-item__header'}>Aircraft Id: {aircraft.id}</h3>
                                 <div className={'aircraft-list-item__data'}>
-                                    <span>Aircraft type: {aircraft.type}</span>
-                                    <span>Aircraft economy seats available: {aircraft.economySeats}</span>
-                                    <span>Aircraft base: {aircraft.base}</span>
+                                    <div>Aircraft type: {aircraft.type}</div>
+                                    <div>Aircraft economy seats available: {aircraft.economySeats}</div>
+                                    <div>Aircraft base: {aircraft.base}</div>
                                 </div>
                             </li>
                         )

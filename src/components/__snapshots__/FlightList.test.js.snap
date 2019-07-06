@@ -1,36 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Flight List renders correctly 1`] = `
-<ul
-  className="flight-list"
+<div
+  className="flight-list-wrapper"
 >
-  <li
-    className="flight-list-item"
-    key="0"
-    onClick={[Function]}
+  <div
+    className="flight-list-reset"
   >
-    <h3
-      className="flight-list-item__header"
+    <button
+      className="flight-list-reset-button"
+      onClick={[Function]}
     >
-      Flight: 
-      AS1001
-    </h3>
-    <div
-      className="flight-list-item__data"
+      reset
+    </button>
+  </div>
+  <ul
+    className="flight-list"
+  >
+    <li
+      className="flight-list-item"
+      key="0"
+      onClick={[Function]}
     >
-      <span>
-        Departure: 
-        06:00
-         - 
-        LFSB
-      </span>
-      <span>
-        Arrival: 
-        07:15
-         - 
-        LFMN
-      </span>
-    </div>
-  </li>
-</ul>
+      <h3
+        className="flight-list-item__header"
+      >
+        Flight: 
+        AS1001
+      </h3>
+      <div
+        className="flight-list-item__data"
+      >
+        <span>
+          Departure: 
+          06:00
+           - 
+          LFSB
+        </span>
+        <span
+          className="flight-list-item__data-arrow"
+        />
+        <span>
+          Arrival: 
+          07:15
+           - 
+          LFMN
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
 `;

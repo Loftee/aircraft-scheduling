@@ -18,18 +18,18 @@ exports[`Aircraft list renders correctly 1`] = `
     <div
       className="aircraft-list-item__data"
     >
-      <span>
+      <div>
         Aircraft type: 
         A320
-      </span>
-      <span>
+      </div>
+      <div>
         Aircraft economy seats available: 
         186
-      </span>
-      <span>
+      </div>
+      <div>
         Aircraft base: 
         EGKK
-      </span>
+      </div>
     </div>
   </li>
 </ul>

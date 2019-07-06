@@ -8,7 +8,8 @@ export const fetchAircrafts = () => {
                 id: aircraft.ident,
                 type: aircraft.type,
                 economySeats: aircraft.economySeats,
-                base: aircraft.base
+                base: aircraft.base,
+                selected: false
             }));
         })
         .catch(error => console.log('Error fetching aircraft: ' + error));
