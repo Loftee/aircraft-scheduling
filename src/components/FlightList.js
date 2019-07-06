@@ -4,13 +4,10 @@ import './FlightList.css';
 
 class FlightList extends Component {
     render() {
-        const {filteredFlightsList, selectFlight, resetFlights} = this.props;
+        const {filteredFlightsList, selectFlight} = this.props;
         return (
             <div className={'flight-list-wrapper'}>
                 <h2>Select Flights</h2>
-                <div className={"flight-list-reset"}>
-                    <button className={'flight-list-reset-button'} onClick={() => {resetFlights()}}>reset</button>
-                </div>
                 <ul className={'flight-list'}>
                     {
                         filteredFlightsList.map((flight, index) => {

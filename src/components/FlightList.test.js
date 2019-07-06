@@ -40,17 +40,5 @@ describe('Flight List', () => {
                 expect(mockSelect).toHaveBeenCalledWith(id);
             });
         });
-
-        describe('and a reset is clicked', () => {
-            const mockReset = jest.fn();
-            const component = shallow(<FlightList {...props} resetFlights={mockReset}/>);
-            beforeEach(() => {
-                component.find('.flight-list-reset-button').simulate('click');
-            });
-
-            it('sends correct id', () => {
-                expect(mockReset).toHaveBeenCalled();
-            });
-        });
     });
 });

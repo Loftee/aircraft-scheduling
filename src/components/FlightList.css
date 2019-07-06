@@ -49,9 +49,3 @@ span.flight-list-item__data-arrow {
     background-size: contain;
 
 }
-
-.flight-list-reset {
-    float: left;
-    width:100%;
-    text-align:right;
-}

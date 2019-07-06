@@ -36,9 +36,8 @@ class App extends Component {
     }
 
     selectAircraft = id => {
-        const aircraftListCopy = JSON.parse(JSON.stringify(this.state.aircraftList));
         // Reset the selected aircraft list so multiple aircraft can't be selected at once.
-        this.resetSelected(aircraftListCopy);
+        const aircraftListCopy = this.resetSelectedAircraft();
         const aircraftIndex = aircraftListCopy.findIndex(aircraft => aircraft.id === id);
 
         aircraftListCopy[aircraftIndex].selected = true;
@@ -56,7 +55,7 @@ class App extends Component {
         }));
     };
 
-    selectFlight = (id) => {
+    selectFlight = id => {
         // Get the selected flight
         const flightListCopy = JSON.parse(JSON.stringify(this.state.flightList));
         const flightIndex = flightListCopy.findIndex(flight => flight.id === id);
@@ -81,10 +80,12 @@ class App extends Component {
         }));
     };
 
-    resetSelected = (listCopy) => {
-        listCopy.forEach(listItem => {
-           listItem.selected = false
+    resetSelectedAircraft = () => {
+        const aircraftListCopy = JSON.parse(JSON.stringify(this.state.aircraftList));
+        aircraftListCopy.forEach(aircraft => {
+           aircraft.selected = false
         });
+        return aircraftListCopy
     };
 
     filterFlights = (departAirport, departTime = 0) => {
@@ -93,18 +94,24 @@ class App extends Component {
         return filteredByAirport.filter(flight => flight.departureTime > departTime);
     };
 
-    resetFlights = () => {
+    reset = () => {
+        const aircraftListCopy = this.resetSelectedAircraft();
         this.setState(prevState => ({
             ...prevState,
-            filteredFlightsList: this.state.flightList
+            aircraftList: aircraftListCopy,
+            filteredFlightsList: [],
+            routeList: []
         }));
     };
 
     render() {
         return (
             <div className={"app"}>
+                <div className={"reset"}>
+                    <button className={'reset-button'} onClick={() => {this.reset()}}>Reset</button>
+                </div>
                 <AircraftList aircraftList={this.state.aircraftList} selectAircraft={this.selectAircraft} />
-                <FlightList filteredFlightsList={this.state.filteredFlightsList} selectFlight={this.selectFlight} resetFlights={this.resetFlights} />
+                <FlightList filteredFlightsList={this.state.filteredFlightsList} selectFlight={this.selectFlight} />
                 <RouteList routeList={this.state.routeList} />
             </div>
         );
