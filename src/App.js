@@ -4,7 +4,7 @@ import AircraftList from './components/AircraftList';
 import FlightList from "./components/FlightList";
 import RouteList from './components/RouteList';
 import * as constants from './constants';
-import * as services from './services';
+import * as services from './services/services';
 
 class App extends Component {
     constructor() {

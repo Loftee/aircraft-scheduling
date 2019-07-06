@@ -4,13 +4,22 @@ exports[`App renders correctly 1`] = `
 <div
   className="app"
 >
+  <div
+    className="reset"
+  >
+    <button
+      className="reset-button"
+      onClick={[Function]}
+    >
+      Reset
+    </button>
+  </div>
   <AircraftList
     aircraftList={Array []}
     selectAircraft={[Function]}
   />
   <FlightList
     filteredFlightsList={Array []}
-    resetFlights={[Function]}
     selectFlight={[Function]}
   />
   <RouteList
