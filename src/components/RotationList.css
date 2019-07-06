@@ -18,12 +18,6 @@
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
-    cursor: pointer;
-}
-
-.rotation-list-item:hover {
-    background: #eee;
-    border-color: #999;
 }
 
 .rotation-list-item__data {
