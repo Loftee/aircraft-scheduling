@@ -1,12 +1,12 @@
-.aircraft-list {
-    width:25%;
+.flight-list {
+    width:50%;
     padding: 30px;
     float:left;
     list-style:none;
     margin:0;
 }
 
-.aircraft-list-item {
+.flight-list-item {
     margin-bottom: 20px;
     padding:10px;
     border: 1px solid #ccc;

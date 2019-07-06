@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import AircraftList from './components/AircraftList';
+import FlightList from "./components/FlightList";
 import * as services from './services';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
         super();
         this.state = {
             aircraftList: [],
+            flightList: []
         };
     }
 
@@ -19,12 +21,21 @@ class App extends Component {
                     aircraftList: newAircraft
                 }));
             });
-    }
+
+        services.fetchFlights()
+            .then(newFlights => {
+                this.setState(prevState => ({
+                    ...prevState,
+                    flightList: newFlights
+                }));
+            });
+    };
 
     render() {
         return (
             <div className={"app"}>
                 <AircraftList {...this.state} />
+                <FlightList {...this.state} />
             </div>
         );
     }

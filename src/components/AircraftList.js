@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import './AircraftList.css';
+
 class AircraftList extends Component {
     render() {
         const {aircraftList} = this.props;
