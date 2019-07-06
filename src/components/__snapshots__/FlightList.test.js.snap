@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flight List renders correctly 1`] = `
+<ul
+  className="flight-list"
+>
+  <li
+    className="flight-list-item"
+    key="0"
+    onClick={[Function]}
+  >
+    <h3
+      className="flight-list-item__header"
+    >
+      Flight: 
+      AS1001
+    </h3>
+    <div
+      className="flight-list-item__data"
+    >
+      <span>
+        Departure: 
+        06:00
+         - 
+        LFSB
+      </span>
+      <span>
+        Arrival: 
+        07:15
+         - 
+        LFMN
+      </span>
+    </div>
+  </li>
+</ul>
+`;

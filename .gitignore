@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 .idea/
-__snapshots__/
 
 # testing
 /coverage

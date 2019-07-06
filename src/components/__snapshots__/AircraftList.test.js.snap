@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aircraft list renders correctly 1`] = `
+<ul
+  className="aircraft-list"
+>
+  <li
+    className="aircraft-list-item"
+    key="0"
+    onClick={[Function]}
+  >
+    <h3
+      className="aircraft-list-item__header"
+    >
+      Aircraft Id: 
+      GABCD
+    </h3>
+    <div
+      className="aircraft-list-item__data"
+    >
+      <span>
+        Aircraft type: 
+        A320
+      </span>
+      <span>
+        Aircraft economy seats available: 
+        186
+      </span>
+      <span>
+        Aircraft base: 
+        EGKK
+      </span>
+    </div>
+  </li>
+</ul>
+`;
