@@ -1,36 +1,36 @@
-.flight-list-wrapper {
-    width:37.5%;
+.route-list-wrapper {
+    width: 37.5%;
     padding: 15px;
-    float:left;
-    list-style:none;
-    margin:0;
+    float: left;
+    list-style: none;
+    margin: 0;
 }
 
-.flight-list{
-    width:100%;
-    float:left;
-    list-style:none;
-    padding:0;
+.route-list {
+    width: 100%;
+    float: left;
+    list-style: none;
+    padding: 0;
 }
 
-.flight-list-item {
-    width:100%;
+.route-list-item {
+    width: 100%;
     margin-bottom: 20px;
-    padding:10px;
+    padding: 10px;
     border: 1px solid #ccc;
     cursor: pointer;
 }
 
-.flight-list-item:hover {
+.route-list-item:hover {
     background: #eee;
     border-color: #999;
 }
 
-.flight-list-item__data {
+.route-list-item__data {
     font-size: 0;
 }
 
-.flight-list-item__data span {
+.route-list-item__data span {
     font-size: initial;
     display: inline-block;
     width: 40%;
@@ -38,11 +38,11 @@
     min-height: 20px;
 }
 
-.flight-list-item__data span:last-child {
+.route-list-item__data span:last-child {
     text-align: right;
 }
 
-span.flight-list-item__data-arrow {
+span.route-list-item__data-arrow {
     width: 20%;
     text-align: center;
     background: url('../assets/arrow.png') center center no-repeat;
@@ -50,8 +50,8 @@ span.flight-list-item__data-arrow {
 
 }
 
-.flight-list-reset {
+.route-list-reset {
     float: left;
-    width:100%;
-    text-align:right;
+    width: 100%;
+    text-align: right;
 }
