@@ -36,6 +36,9 @@ exports[`Aircraft list renders correctly 1`] = `
           Aircraft base: 
           EGKK
         </div>
+        <div>
+          Utilisation: 
+        </div>
       </div>
     </li>
   </ul>

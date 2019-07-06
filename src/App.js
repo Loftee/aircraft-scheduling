@@ -79,9 +79,10 @@ class App extends Component {
         rotationListCopy.forEach(rotation => {
             flightTimeInSeconds += rotation.arrivalTime - rotation.departureTime;
         });
-        const flightTimePercentage = (flightTimeInSeconds / constants.SECONDS_PER_DAY) * 100;
 
-        aircraftListCopy[aircraftIndex].utilisation = Math.round(flightTimePercentage).toString() + '%';
+        const flightTimePercentage = Math.round((flightTimeInSeconds / constants.SECONDS_PER_DAY) * 100);
+
+        aircraftListCopy[aircraftIndex].utilisation = flightTimePercentage.toString() + '%';
 
         // Set filtered flights and rotation lists
         this.setState(prevState => ({

@@ -25,7 +25,7 @@ describe('App', () => {
         const mountedApp = mount(<App/>);
         const aircraftId = "GABCD";
         mountedApp.setState({
-            aircraftList: [{id: aircraftId, type: "A320", economySeats: 186, base: "EGKK", selected: false}],
+            aircraftList: [{id: aircraftId, type: "A320", economySeats: 186, base: "EGKK", selected: false, utilisation: 0}],
             flightList: [{
                 id: "AS1001",
                 departureTime: 21600,
@@ -48,7 +48,8 @@ describe('App', () => {
                 type: "A320",
                 economySeats: 186,
                 base: "EGKK",
-                selected: true
+                selected: true,
+                utilisation: 0
             }]);
         });
     });
@@ -57,9 +58,9 @@ describe('App', () => {
         const mountedApp = mount(<App/>);
         const flightId = "AS1001";
         mountedApp.setState({
-            aircraftList: [{id: flightId, type: "A320", economySeats: 186, base: "EGKK", selected: false}],
+            aircraftList: [{id: "GABCD", type: "A320", economySeats: 186, base: "EGKK", selected: true, utilisation: 0}],
             flightList: [{
-                id: "AS1001",
+                id: flightId,
                 departureTime: 21600,
                 arrivalTime: 26100,
                 readableDeparture: "06:00",
@@ -68,7 +69,7 @@ describe('App', () => {
                 destination: "LFMN"
             }],
             filteredFlightsList: [{
-                id: "AS1001",
+                id: flightId,
                 departureTime: 21600,
                 arrivalTime: 26100,
                 readableDeparture: "06:00",
@@ -99,7 +100,7 @@ describe('App', () => {
     describe('when reset button is clicked', () => {
         const mountedApp = mount(<App/>);
         mountedApp.setState({
-            aircraftList: [{id: "GABCD", type: "A320", economySeats: 186, base: "EGKK", selected: true}],
+            aircraftList: [{id: "GABCD", type: "A320", economySeats: 186, base: "EGKK", selected: true, utilisation: 0}],
             flightList: [{
                 id: "AS1001",
                 departureTime: 21600,
@@ -142,7 +143,8 @@ describe('App', () => {
                 type: "A320",
                 economySeats: 186,
                 base: "EGKK",
-                selected: false
+                selected: false,
+                utilisation: 0
             }]);
             expect(mountedApp.state().flightList).toEqual([{
                 id: "AS1001",
